@@ -1,0 +1,3 @@
+// RecordingService implementation
+
+export default {};

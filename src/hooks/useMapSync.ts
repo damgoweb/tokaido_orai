@@ -1,0 +1,3 @@
+// useMapSync implementation
+
+export default {};

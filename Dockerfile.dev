@@ -1,0 +1,19 @@
+FROM node:20-alpine AS base
+
+RUN apk add --no-cache git python3 make g++
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm ci --only=production
+
+FROM base AS dev-deps
+RUN npm ci
+
+FROM base AS development
+COPY --from=dev-deps /app/node_modules ./node_modules
+COPY . .
+
+EXPOSE 5173
+
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]

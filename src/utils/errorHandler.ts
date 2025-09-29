@@ -1,0 +1,3 @@
+// errorHandler implementation
+
+export default {};

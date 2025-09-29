@@ -1,0 +1,3 @@
+// TimestampService implementation
+
+export default {};

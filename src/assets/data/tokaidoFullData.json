@@ -1,0 +1,528 @@
+{
+  "title": "東海道往来",
+  "description": "江戸時代の東海道五十三次を題材にした韻文",
+  "totalSegments": 55,
+  "segments": [
+    {
+      "id": "seg_001",
+      "stationId": 0,
+      "stationName": "起点",
+      "text": "都路は五十余りに密の宿",
+      "ruby": "みやこじはいそじあまりにみつのやど",
+      "type": "intro"
+    },
+    {
+      "id": "seg_002",
+      "stationId": 0,
+      "stationName": "江戸",
+      "text": "時得て咲くや江戸の華",
+      "ruby": "ときえてさくやえどのはな",
+      "type": "intro"
+    },
+    {
+      "id": "seg_003",
+      "stationId": 1,
+      "stationName": "品川",
+      "text": "波静かなる品川や",
+      "ruby": "なみしずかなるしながわや",
+      "type": "station"
+    },
+    {
+      "id": "seg_004",
+      "stationId": 2,
+      "stationName": "川崎",
+      "text": "やがて超えくる川崎の",
+      "ruby": "やがてこえくるかわさきの",
+      "type": "station"
+    },
+    {
+      "id": "seg_005",
+      "stationId": 3,
+      "stationName": "神奈川",
+      "text": "軒端ならぶる神奈川は",
+      "ruby": "のきばならぶるかながわは",
+      "type": "station"
+    },
+    {
+      "id": "seg_006",
+      "stationId": 4,
+      "stationName": "保土ヶ谷",
+      "text": "はや保土ヶ谷のほどもなく",
+      "ruby": "はやほどがやのほどもなく",
+      "type": "station"
+    },
+    {
+      "id": "seg_007",
+      "stationId": 5,
+      "stationName": "戸塚",
+      "text": "くれて戸塚に宿るらん",
+      "ruby": "くれてとつかにやどるらん",
+      "type": "station"
+    },
+    {
+      "id": "seg_008",
+      "stationId": 6,
+      "stationName": "藤沢",
+      "text": "紫匂う藤沢の",
+      "ruby": "むらさきにおうふじさわの",
+      "type": "station"
+    },
+    {
+      "id": "seg_009",
+      "stationId": 7,
+      "stationName": "平塚",
+      "text": "野も瀬に続く平塚も",
+      "ruby": "のもせにつづくひらつかも",
+      "type": "station"
+    },
+    {
+      "id": "seg_010",
+      "stationId": 8,
+      "stationName": "大磯",
+      "text": "元の哀れは大磯か",
+      "ruby": "もとのあわれはおおいそか",
+      "type": "station"
+    },
+    {
+      "id": "seg_011",
+      "stationId": 9,
+      "stationName": "小田原",
+      "text": "蛙啼なる小田原は",
+      "ruby": "かわずなくなるおだわらは",
+      "type": "station"
+    },
+    {
+      "id": "seg_012",
+      "stationId": 10,
+      "stationName": "箱根",
+      "text": "箱根を超えて伊豆の海",
+      "ruby": "はこねをこえていずのうみ",
+      "type": "station"
+    },
+    {
+      "id": "seg_013",
+      "stationId": 11,
+      "stationName": "三島",
+      "text": "三島の里の神垣や",
+      "ruby": "みしまのさとのかみがきや",
+      "type": "station"
+    },
+    {
+      "id": "seg_014",
+      "stationId": 12,
+      "stationName": "沼津",
+      "text": "宿は沼津の菰草",
+      "ruby": "やどはぬまづのこもくさ",
+      "type": "station"
+    },
+    {
+      "id": "seg_015",
+      "stationId": 13,
+      "stationName": "原",
+      "text": "さらでも原のつゆ払う",
+      "ruby": "さらでもはらのつゆはらう",
+      "type": "station"
+    },
+    {
+      "id": "seg_016",
+      "stationId": 14,
+      "stationName": "吉原",
+      "text": "富士の嶺近き吉原と",
+      "ruby": "ふじのねちかきよしわらと",
+      "type": "station"
+    },
+    {
+      "id": "seg_017",
+      "stationId": 15,
+      "stationName": "蒲原",
+      "text": "倶に語らん蒲原や",
+      "ruby": "ともにかたらんかんばらや",
+      "type": "station"
+    },
+    {
+      "id": "seg_018",
+      "stationId": 16,
+      "stationName": "由比",
+      "text": "休らぐ由比の宿なるを",
+      "ruby": "やすらぐゆいのやどなるを",
+      "type": "station"
+    },
+    {
+      "id": "seg_019",
+      "stationId": 17,
+      "stationName": "興津",
+      "text": "思い興津に焼く塩の",
+      "ruby": "おもいおきつにやくしおの",
+      "type": "station"
+    },
+    {
+      "id": "seg_020",
+      "stationId": 18,
+      "stationName": "江尻",
+      "text": "後は江尻のあさぼらけ",
+      "ruby": "のちはえじりのあさぼらけ",
+      "type": "station"
+    },
+    {
+      "id": "seg_021",
+      "stationId": 19,
+      "stationName": "府中",
+      "text": "今朝は駿河の国府行く",
+      "ruby": "けさはするがのこくふゆく",
+      "type": "station"
+    },
+    {
+      "id": "seg_022",
+      "stationId": 20,
+      "stationName": "鞠子",
+      "text": "暮れに数ある鞠子とは",
+      "ruby": "くれにかずあるまりことは",
+      "type": "station"
+    },
+    {
+      "id": "seg_023",
+      "stationId": 21,
+      "stationName": "岡部",
+      "text": "渡る岡部の蔦の道",
+      "ruby": "わたるおかべのつたのみち",
+      "type": "station"
+    },
+    {
+      "id": "seg_024",
+      "stationId": 22,
+      "stationName": "藤枝",
+      "text": "千歳の松の藤枝と",
+      "ruby": "ちとせのまつのふじえだと",
+      "type": "station"
+    },
+    {
+      "id": "seg_025",
+      "stationId": 23,
+      "stationName": "島田",
+      "text": "よしや島田の大井川",
+      "ruby": "よしやしまだのおおいがわ",
+      "type": "station"
+    },
+    {
+      "id": "seg_026",
+      "stationId": 24,
+      "stationName": "金谷",
+      "text": "渡る思いは金谷とて",
+      "ruby": "わたるおもいはかなやとて",
+      "type": "station"
+    },
+    {
+      "id": "seg_027",
+      "stationId": 25,
+      "stationName": "日坂",
+      "text": "照らす光は日坂に",
+      "ruby": "てらすひかりはにっさかに",
+      "type": "station"
+    },
+    {
+      "id": "seg_028",
+      "stationId": 26,
+      "stationName": "掛川",
+      "text": "賑わう里の掛川か",
+      "ruby": "にぎわうさとのかけがわか",
+      "type": "station"
+    },
+    {
+      "id": "seg_029",
+      "stationId": 27,
+      "stationName": "袋井",
+      "text": "かけて袋井ふく風の",
+      "ruby": "かけてふくろいふくかぜの",
+      "type": "station"
+    },
+    {
+      "id": "seg_030",
+      "stationId": 28,
+      "stationName": "見附",
+      "text": "登る見附の八幡とは",
+      "ruby": "のぼるみつけのやわたとは",
+      "type": "station"
+    },
+    {
+      "id": "seg_031",
+      "stationId": 29,
+      "stationName": "浜松",
+      "text": "浜松替えの年久し",
+      "ruby": "はままつがえのとしひさし",
+      "type": "station"
+    },
+    {
+      "id": "seg_032",
+      "stationId": 30,
+      "stationName": "舞坂",
+      "text": "時雨し頃も舞坂を",
+      "ruby": "しぐれしころもまいさかを",
+      "type": "station"
+    },
+    {
+      "id": "seg_033",
+      "stationId": 31,
+      "stationName": "新居",
+      "text": "遠近すぐる新居の磯",
+      "ruby": "おちこちすぐるあらいのいそ",
+      "type": "station"
+    },
+    {
+      "id": "seg_034",
+      "stationId": 32,
+      "stationName": "白須賀",
+      "text": "袖に波こす白須賀も",
+      "ruby": "そでになみこすしらすかも",
+      "type": "station"
+    },
+    {
+      "id": "seg_035",
+      "stationId": 33,
+      "stationName": "二川",
+      "text": "本より名のみ二川や",
+      "ruby": "もとよりなのみふたがわや",
+      "type": "station"
+    },
+    {
+      "id": "seg_036",
+      "stationId": 34,
+      "stationName": "吉田",
+      "text": "浦ふく風の吉田こそ",
+      "ruby": "うらふくかぜのよしだこそ",
+      "type": "station"
+    },
+    {
+      "id": "seg_037",
+      "stationId": 35,
+      "stationName": "御油",
+      "text": "思い知られし御油の里",
+      "ruby": "おもいしられしごゆのさと",
+      "type": "station"
+    },
+    {
+      "id": "seg_038",
+      "stationId": 36,
+      "stationName": "赤坂",
+      "text": "解けにし花も赤坂の",
+      "ruby": "とけにしはなもあかさかの",
+      "type": "station"
+    },
+    {
+      "id": "seg_039",
+      "stationId": 37,
+      "stationName": "藤川",
+      "text": "野田にや勝る藤川を",
+      "ruby": "のだにやまさるふじかわを",
+      "type": "station"
+    },
+    {
+      "id": "seg_040",
+      "stationId": 38,
+      "stationName": "岡崎",
+      "text": "岡崎の宿いかならん",
+      "ruby": "おかざきのやどいかならん",
+      "type": "station"
+    },
+    {
+      "id": "seg_041",
+      "stationId": 39,
+      "stationName": "知立",
+      "text": "結ぶ池鯉鮒（知立）の仮の夢",
+      "ruby": "むすぶちりゅうのかりのゆめ",
+      "type": "station"
+    },
+    {
+      "id": "seg_042",
+      "stationId": 40,
+      "stationName": "鳴海",
+      "text": "覚める波間の鳴海かた",
+      "ruby": "さめるなみまのなるみがた",
+      "type": "station"
+    },
+    {
+      "id": "seg_043",
+      "stationId": 41,
+      "stationName": "熱田",
+      "text": "ただ爰許に熱田の宮",
+      "ruby": "ただここもとにあつたのみや",
+      "type": "station"
+    },
+    {
+      "id": "seg_044",
+      "stationId": 42,
+      "stationName": "桑名",
+      "text": "八十氏渡す桑名の海",
+      "ruby": "やそうじわたすくわなのうみ",
+      "type": "station"
+    },
+    {
+      "id": "seg_045",
+      "stationId": 43,
+      "stationName": "四日市",
+      "text": "道の行方は四日市",
+      "ruby": "みちのゆくえはよっかいち",
+      "type": "station"
+    },
+    {
+      "id": "seg_046",
+      "stationId": 44,
+      "stationName": "石薬師",
+      "text": "誓いも固き石薬師",
+      "ruby": "ちかいもかたきいしやくし",
+      "type": "station"
+    },
+    {
+      "id": "seg_047",
+      "stationId": 45,
+      "stationName": "庄野",
+      "text": "庄野の宿りこれぞとよ",
+      "ruby": "しょうののやどりこれぞとよ",
+      "type": "station"
+    },
+    {
+      "id": "seg_048",
+      "stationId": 46,
+      "stationName": "亀山",
+      "text": "齢久しき亀山と",
+      "ruby": "よわいひさしきかめやまと",
+      "type": "station"
+    },
+    {
+      "id": "seg_049",
+      "stationId": 47,
+      "stationName": "関",
+      "text": "留むる人なき関ならじ",
+      "ruby": "とむるひとなきせきならじ",
+      "type": "station"
+    },
+    {
+      "id": "seg_050",
+      "stationId": 48,
+      "stationName": "坂の下",
+      "text": "賤家並ぶ坂の下",
+      "ruby": "しずがやならぶさかのした",
+      "type": "station"
+    },
+    {
+      "id": "seg_051",
+      "stationId": 49,
+      "stationName": "土山",
+      "text": "誰が土山に座を占めん",
+      "ruby": "たがつちやまにざをしめん",
+      "type": "station"
+    },
+    {
+      "id": "seg_052",
+      "stationId": 50,
+      "stationName": "水口",
+      "text": "群たる露も水口に",
+      "ruby": "むれたるつゆもみなくちに",
+      "type": "station"
+    },
+    {
+      "id": "seg_053",
+      "stationId": 51,
+      "stationName": "石部",
+      "text": "濁らぬ末の石部かな",
+      "ruby": "にごらぬすえのいしべかな",
+      "type": "station"
+    },
+    {
+      "id": "seg_054",
+      "stationId": 52,
+      "stationName": "草津",
+      "text": "野辺はひとりの草津わけ",
+      "ruby": "のべはひとりのくさつわけ",
+      "type": "station"
+    },
+    {
+      "id": "seg_055",
+      "stationId": 53,
+      "stationName": "大津",
+      "text": "げにも守りの大津とは",
+      "ruby": "げにもまもりのおおつとは",
+      "type": "station"
+    },
+    {
+      "id": "seg_056",
+      "stationId": 54,
+      "stationName": "京都",
+      "text": "花の錦の九重に",
+      "ruby": "はなのにしきのここのえに",
+      "type": "ending"
+    },
+    {
+      "id": "seg_057",
+      "stationId": 54,
+      "stationName": "京都",
+      "text": "心浮き立つ都ぞと",
+      "ruby": "こころうきたつみやこぞと",
+      "type": "ending"
+    },
+    {
+      "id": "seg_058",
+      "stationId": 54,
+      "stationName": "京都",
+      "text": "君の寿祝いたりけり",
+      "ruby": "きみのことぶきいわいたりけり",
+      "type": "ending"
+    }
+  ],
+  "stations": [
+    { "id": 0, "name": "日本橋", "modernName": "東京都中央区", "lat": 35.6840, "lng": 139.7744 },
+    { "id": 1, "name": "品川", "modernName": "東京都品川区", "lat": 35.6090, "lng": 139.7303 },
+    { "id": 2, "name": "川崎", "modernName": "神奈川県川崎市", "lat": 35.5308, "lng": 139.7029 },
+    { "id": 3, "name": "神奈川", "modernName": "横浜市神奈川区", "lat": 35.4704, "lng": 139.6227 },
+    { "id": 4, "name": "保土ヶ谷", "modernName": "横浜市保土ケ谷区", "lat": 35.4499, "lng": 139.5950 },
+    { "id": 5, "name": "戸塚", "modernName": "横浜市戸塚区", "lat": 35.3916, "lng": 139.5333 },
+    { "id": 6, "name": "藤沢", "modernName": "神奈川県藤沢市", "lat": 35.3395, "lng": 139.4870 },
+    { "id": 7, "name": "平塚", "modernName": "神奈川県平塚市", "lat": 35.3272, "lng": 139.3495 },
+    { "id": 8, "name": "大磯", "modernName": "神奈川県大磯町", "lat": 35.3089, "lng": 139.3116 },
+    { "id": 9, "name": "小田原", "modernName": "神奈川県小田原市", "lat": 35.2551, "lng": 139.1527 },
+    { "id": 10, "name": "箱根", "modernName": "神奈川県箱根町", "lat": 35.1894, "lng": 139.0245 },
+    { "id": 11, "name": "三島", "modernName": "静岡県三島市", "lat": 35.1181, "lng": 138.9184 },
+    { "id": 12, "name": "沼津", "modernName": "静岡県沼津市", "lat": 35.0956, "lng": 138.8638 },
+    { "id": 13, "name": "原", "modernName": "静岡県沼津市", "lat": 35.1290, "lng": 138.8090 },
+    { "id": 14, "name": "吉原", "modernName": "静岡県富士市", "lat": 35.1607, "lng": 138.6862 },
+    { "id": 15, "name": "蒲原", "modernName": "静岡県静岡市", "lat": 35.1181, "lng": 138.5899 },
+    { "id": 16, "name": "由比", "modernName": "静岡県静岡市", "lat": 35.1058, "lng": 138.5648 },
+    { "id": 17, "name": "興津", "modernName": "静岡県静岡市", "lat": 35.0519, "lng": 138.5218 },
+    { "id": 18, "name": "江尻", "modernName": "静岡県静岡市", "lat": 35.0169, "lng": 138.4886 },
+    { "id": 19, "name": "府中", "modernName": "静岡県静岡市", "lat": 34.9751, "lng": 138.3830 },
+    { "id": 20, "name": "鞠子", "modernName": "静岡県静岡市", "lat": 34.9469, "lng": 138.3363 },
+    { "id": 21, "name": "岡部", "modernName": "静岡県藤枝市", "lat": 34.9089, "lng": 138.2833 },
+    { "id": 22, "name": "藤枝", "modernName": "静岡県藤枝市", "lat": 34.8669, "lng": 138.2579 },
+    { "id": 23, "name": "島田", "modernName": "静岡県島田市", "lat": 34.8363, "lng": 138.1749 },
+    { "id": 24, "name": "金谷", "modernName": "静岡県島田市", "lat": 34.8258, "lng": 138.1288 },
+    { "id": 25, "name": "日坂", "modernName": "静岡県掛川市", "lat": 34.7858, "lng": 138.0827 },
+    { "id": 26, "name": "掛川", "modernName": "静岡県掛川市", "lat": 34.7697, "lng": 137.9981 },
+    { "id": 27, "name": "袋井", "modernName": "静岡県袋井市", "lat": 34.7502, "lng": 137.9246 },
+    { "id": 28, "name": "見附", "modernName": "静岡県磐田市", "lat": 34.7254, "lng": 137.8512 },
+    { "id": 29, "name": "浜松", "modernName": "静岡県浜松市", "lat": 34.7028, "lng": 137.7347 },
+    { "id": 30, "name": "舞坂", "modernName": "静岡県浜松市", "lat": 34.6857, "lng": 137.6033 },
+    { "id": 31, "name": "新居", "modernName": "静岡県湖西市", "lat": 34.6865, "lng": 137.5617 },
+    { "id": 32, "name": "白須賀", "modernName": "静岡県湖西市", "lat": 34.6802, "lng": 137.5094 },
+    { "id": 33, "name": "二川", "modernName": "愛知県豊橋市", "lat": 34.7237, "lng": 137.4543 },
+    { "id": 34, "name": "吉田", "modernName": "愛知県豊橋市", "lat": 34.7633, "lng": 137.3912 },
+    { "id": 35, "name": "御油", "modernName": "愛知県豊川市", "lat": 34.8434, "lng": 137.3128 },
+    { "id": 36, "name": "赤坂", "modernName": "愛知県豊川市", "lat": 34.8513, "lng": 137.3032 },
+    { "id": 37, "name": "藤川", "modernName": "愛知県岡崎市", "lat": 34.9252, "lng": 137.2150 },
+    { "id": 38, "name": "岡崎", "modernName": "愛知県岡崎市", "lat": 34.9572, "lng": 137.1741 },
+    { "id": 39, "name": "知立", "modernName": "愛知県知立市", "lat": 35.0013, "lng": 137.0507 },
+    { "id": 40, "name": "鳴海", "modernName": "名古屋市緑区", "lat": 35.0830, "lng": 136.9502 },
+    { "id": 41, "name": "熱田", "modernName": "名古屋市熱田区", "lat": 35.1282, "lng": 136.9085 },
+    { "id": 42, "name": "桑名", "modernName": "三重県桑名市", "lat": 35.0623, "lng": 136.6839 },
+    { "id": 43, "name": "四日市", "modernName": "三重県四日市市", "lat": 34.9651, "lng": 136.6257 },
+    { "id": 44, "name": "石薬師", "modernName": "三重県鈴鹿市", "lat": 34.8818, "lng": 136.5486 },
+    { "id": 45, "name": "庄野", "modernName": "三重県鈴鹿市", "lat": 34.8777, "lng": 136.5154 },
+    { "id": 46, "name": "亀山", "modernName": "三重県亀山市", "lat": 34.8556, "lng": 136.4521 },
+    { "id": 47, "name": "関", "modernName": "三重県亀山市", "lat": 34.8499, "lng": 136.3991 },
+    { "id": 48, "name": "坂の下", "modernName": "三重県亀山市", "lat": 34.8799, "lng": 136.3414 },
+    { "id": 49, "name": "土山", "modernName": "滋賀県甲賀市", "lat": 34.9340, "lng": 136.2847 },
+    { "id": 50, "name": "水口", "modernName": "滋賀県甲賀市", "lat": 34.9665, "lng": 136.1699 },
+    { "id": 51, "name": "石部", "modernName": "滋賀県湖南市", "lat": 35.0043, "lng": 136.0549 },
+    { "id": 52, "name": "草津", "modernName": "滋賀県草津市", "lat": 35.0125, "lng": 135.9611 },
+    { "id": 53, "name": "大津", "modernName": "滋賀県大津市", "lat": 35.0043, "lng": 135.8547 },
+    { "id": 54, "name": "京都", "modernName": "京都府京都市", "lat": 35.0116, "lng": 135.7681 }
+  ]
+}

@@ -1,0 +1,3 @@
+// useTextHighlight implementation
+
+export default {};

@@ -1,0 +1,3 @@
+// GeolocationService implementation
+
+export default {};

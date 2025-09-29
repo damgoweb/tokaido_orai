@@ -1,0 +1,3 @@
+// MapService implementation
+
+export default {};

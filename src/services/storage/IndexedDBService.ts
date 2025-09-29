@@ -1,0 +1,3 @@
+// IndexedDBService implementation
+
+export default {};

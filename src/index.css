@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* 東海道往来専用スタイル */
+
+/* 縦書き用スタイル */
+.writing-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  line-height: 1.8;
+}
+
+/* ルビの調整 */
+ruby {
+  ruby-align: center;
+}
+
+ruby rt {
+  font-size: 0.5em;
+  opacity: 0.8;
+  font-weight: normal;
+}
+
+/* 縦書き時のルビ調整 */
+[style*="vertical-rl"] ruby {
+  display: inline-block;
+  text-indent: 0;
+}
+
+[style*="vertical-rl"] ruby rt {
+  font-size: 0.6em;
+  letter-spacing: 0.1em;
+}
+
+/* テキストハイライトアニメーション */
+@keyframes highlight-pulse {
+  0% { background-color: rgb(254, 240, 138); }
+  50% { background-color: rgb(253, 224, 71); }
+  100% { background-color: rgb(254, 240, 138); }
+}
+
+.text-highlight {
+  animation: highlight-pulse 1.5s ease-in-out infinite;
+}
+
+/* スクロールバーのスタイル */
+.overflow-auto::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.overflow-auto::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.overflow-auto::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.overflow-auto::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+html, body, #root {
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* スクロールバーのスタイリング */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
