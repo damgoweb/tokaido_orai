@@ -7,18 +7,13 @@ const TokaidoUkiyoe: React.FC = () => {
   const [currentImage, setCurrentImage] = useState<string>('');
   const [imageError, setImageError] = useState(false);
   
-  // 浮世絵画像のパス設定
-  // public/images/ukiyoe/ フォルダに 00_nihonbashi.jpg, 01_shinagawa.jpg... として配置
+  // 浮世絵画像のパス設定（romaNameを使用）
   useEffect(() => {
     if (currentStationId !== null) {
       const station = tokaidoData.stations.find(s => s.id === currentStationId);
       if (station) {
         const imageNumber = String(station.id).padStart(2, '0');
-        const imageName = station.name.toLowerCase().replace(/[・]/g, '');
-        const imagePath = `/images/ukiyoe/${imageNumber}_${imageName}.jpg`;
-        
-        // デフォルト画像パス（画像がない場合）
-        // const defaultPath = `/images/ukiyoe/default.jpg`;
+        const imagePath = `/images/ukiyoe/${imageNumber}_${station.romaName}.jpg`;
         
         setCurrentImage(imagePath);
         setImageError(false);
@@ -31,7 +26,6 @@ const TokaidoUkiyoe: React.FC = () => {
   
   const handleImageError = () => {
     setImageError(true);
-    setCurrentImage('/images/ukiyoe/default.jpg');
   };
   
   const currentStation = tokaidoData.stations.find(s => s.id === currentStationId);
@@ -71,7 +65,12 @@ const TokaidoUkiyoe: React.FC = () => {
                 00_nihonbashi.jpg<br/>
                 01_shinagawa.jpg<br/>
                 02_kawasaki.jpg<br/>
+                03_kanagawa.jpg<br/>
+                04_hodogaya.jpg<br/>
                 ...
+              </p>
+              <p className="mt-3 text-xs">
+                ※ romaName形式でファイル名を設定してください
               </p>
             </div>
           </div>

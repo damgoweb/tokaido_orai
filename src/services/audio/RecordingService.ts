@@ -1,3 +1,0 @@
-// RecordingService implementation
-
-export default {};

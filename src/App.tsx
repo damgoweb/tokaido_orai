@@ -46,13 +46,13 @@ function App() {
         </div>
         
         {/* コンテンツエリア */}
-        <div className="flex flex-1 lg:flex-row flex-col gap-2 min-h-0">
+        <div className="flex-1 flex lg:flex-row flex-col gap-2 min-h-0 lg:h-full">
           {/* 本文 */}
           <div className={`
             ${activePanel === 'text' ? 'flex' : 'hidden'} 
             lg:flex flex-col 
             w-full lg:w-80 
-            h-full lg:h-auto
+            h-full
           `}>
             <TextView />
           </div>
@@ -60,9 +60,8 @@ function App() {
           {/* 地図 */}
           <div className={`
             ${activePanel === 'map' ? 'flex' : 'hidden'} 
-            lg:flex flex-col 
-            flex-1 
-            min-w-0
+            lg:flex flex-col flex-1
+            h-full
           `}>
             <MapView />
           </div>
@@ -70,8 +69,7 @@ function App() {
           {/* 音声 */}
           <div className={`
             ${activePanel === 'audio' ? 'flex' : 'hidden'} 
-            lg:flex flex-col 
-            w-full lg:w-64
+            lg:flex flex-col w-full lg:w-64 h-full
           `}>
             <AudioView />
           </div>

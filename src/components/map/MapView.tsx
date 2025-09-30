@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import MapContainer from './MapContainer';
+import StationList from './StationList';
 import TokaidoRealMap from './TokaidoRealMap';
-// import TokaidoHistoricalMap from './TokaidoHistoricalMap';
 import TokaidoUkiyoe from './TokaidoUkiyoe';
 
 const MapView: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'list' | 'map' | 'historical' | 'ukiyoe'>('list');
+  const [activeTab, setActiveTab] = useState<'list' | 'map' | 'ukiyoe'>('list');
   
   return (
     <div className="bg-white rounded-lg shadow-lg h-full flex flex-col">
@@ -19,7 +18,7 @@ const MapView: React.FC = () => {
               : 'text-gray-600 hover:text-gray-800'
           }`}
         >
-          📋 リスト
+          📋 宿場リスト
         </button>
         <button
           onClick={() => setActiveTab('map')}
@@ -29,7 +28,7 @@ const MapView: React.FC = () => {
               : 'text-gray-600 hover:text-gray-800'
           }`}
         >
-          🗺️ 地図
+          🗺️ 現代地図
         </button>
         <button
           onClick={() => setActiveTab('ukiyoe')}
@@ -39,15 +38,15 @@ const MapView: React.FC = () => {
               : 'text-gray-600 hover:text-gray-800'
           }`}
         >
-          🎨 浮世絵
+          🎨 浮世絵地図
         </button>
       </div>
       
       {/* タブコンテンツ */}
       <div className="flex-1 overflow-hidden">
-        {activeTab === 'list' && <MapContainer />}
-        {activeTab === 'map' && <TokaidoRealMap />}
-        {activeTab === 'ukiyoe' && <TokaidoUkiyoe />}
+        <div className={activeTab === 'list' ? 'h-full' : 'hidden'}><StationList /></div>
+        <div className={activeTab === 'map' ? 'h-full' : 'hidden'}><TokaidoRealMap /></div>
+        <div className={activeTab === 'ukiyoe' ? 'h-full' : 'hidden'}><TokaidoUkiyoe /></div>
       </div>
     </div>
   );
