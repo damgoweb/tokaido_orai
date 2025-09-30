@@ -8,7 +8,7 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
 
   return {
-    base: env.VITE_BASE_URL || '/', // 環境変数からbaseパスを設定。なければ'/'
+    base: '/', // 環境変数からbaseパスを設定。なければ'/'
     plugins: [
       react(),
       VitePWA({
@@ -17,7 +17,7 @@ export default defineConfig(({ mode }) => {
         manifest: false // public/manifest.jsonを使用
       })
     ],
-    resolve: {
+        resolve: {
       alias: {
         '@': path.resolve(__dirname, './src'),
         '@components': path.resolve(__dirname, './src/components'),
