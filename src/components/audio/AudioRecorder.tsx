@@ -1,5 +1,6 @@
+// src/components/audio/AudioRecorder.tsx
 import React, { useState, useRef, useEffect } from 'react';
-import StorageService from '../../services/storage/StorageService';
+import IndexedDBService from '../../services/storage/IndexedDBService';
 import useAppStore from '../../store/useAppStore';
 
 const AudioRecorder: React.FC = () => {
@@ -26,7 +27,7 @@ const AudioRecorder: React.FC = () => {
 
   const loadRecordings = async () => {
     try {
-      const recordings = await StorageService.getAllRecordings();
+      const recordings = await IndexedDBService.getAllRecordings();
       setSavedRecordings(recordings);
       
       if (recordings.length > 0) {
@@ -37,7 +38,7 @@ const AudioRecorder: React.FC = () => {
         setAudioBlob(latest.blob);
       }
     } catch (error) {
-      console.error('Failed to load recordings:', error);
+      console.error('録音データの読み込みに失敗:', error);
     }
   };
 
@@ -70,7 +71,15 @@ const AudioRecorder: React.FC = () => {
         setAudioBlob(audioBlob);
         
         const name = `録音_${new Date().toLocaleString('ja-JP').replace(/[/:]/g, '-')}`;
-        await StorageService.saveRecording(name, audioBlob, recordingTime);
+        
+        await IndexedDBService.saveRecording({
+          name,
+          blob: audioBlob,
+          duration: recordingTime,
+          createdAt: new Date(),
+          size: audioBlob.size
+        });
+        
         await loadRecordings();
         
         stream.getTracks().forEach(track => track.stop());
@@ -118,7 +127,14 @@ const AudioRecorder: React.FC = () => {
       const name = file.name.replace(/\.(webm|wav|mp3|ogg)$/i, '');
       const blob = new Blob([await file.arrayBuffer()], { type: file.type });
       
-      await StorageService.saveRecording(name, blob, 0);
+      await IndexedDBService.saveRecording({
+        name,
+        blob,
+        duration: 0,
+        createdAt: new Date(),
+        size: blob.size
+      });
+      
       await loadRecordings();
       
       const url = URL.createObjectURL(blob);
@@ -143,7 +159,7 @@ const AudioRecorder: React.FC = () => {
 
   const deleteRecording = async (id: number) => {
     if (confirm('削除しますか？')) {
-      await StorageService.deleteRecording(id);
+      await IndexedDBService.deleteRecording(id);
       await loadRecordings();
     }
   };

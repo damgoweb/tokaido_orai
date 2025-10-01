@@ -1,5 +1,7 @@
+// src/components/audio/AudioPlayer.tsx
 import React, { useState, useEffect } from 'react';
 import useAppStore from '../../store/useAppStore';
+import IndexedDBService from '../../services/storage/IndexedDBService';
 import tokaidoData from '../../assets/data/tokaidoFullData.json';
 
 const AudioPlayer: React.FC = () => {
@@ -7,6 +9,7 @@ const AudioPlayer: React.FC = () => {
   const [duration, setDuration] = useState(0);
   const [syncMode, setSyncMode] = useState(false);
   const [syncData, setSyncData] = useState<Array<{time: number, segmentId: string}>>([]);
+  const [isLoading, setIsLoading] = useState(true);
   
   const { 
     setCurrentSegment,
@@ -14,19 +17,36 @@ const AudioPlayer: React.FC = () => {
     setPlaying
   } = useAppStore();
 
-  // 同期データを読み込み
+  // IndexedDBから同期データを読み込み
   useEffect(() => {
-    const savedData = localStorage.getItem('tokaido_sync_data');
-    if (savedData) {
-      try {
-        const parsed = JSON.parse(savedData);
-        setSyncData(parsed);
-        console.log(`同期データ読み込み: ${parsed.length}点`);
-      } catch (error) {
-        console.error('同期データ読み込みエラー');
-      }
-    }
+    loadSyncData();
   }, []);
+
+  const loadSyncData = async () => {
+    try {
+      setIsLoading(true);
+      const points = await IndexedDBService.getAllSyncPoints();
+      
+      if (points.length > 0) {
+        setSyncData(points);
+        console.log(`同期データ読み込み: ${points.length}点`);
+      } else {
+        // IndexedDBに無い場合、localStorageから移行を試みる
+        const legacyData = localStorage.getItem('tokaido_sync_data');
+        if (legacyData) {
+          const parsed = JSON.parse(legacyData);
+          await IndexedDBService.saveSyncPoints(parsed);
+          setSyncData(parsed);
+          console.log('localStorageからIndexedDBへ移行しました');
+          localStorage.removeItem('tokaido_sync_data');
+        }
+      }
+    } catch (error) {
+      console.error('同期データ読み込みエラー:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   // リアルタイム同期処理
   useEffect(() => {
@@ -41,7 +61,6 @@ const AudioPlayer: React.FC = () => {
       // 同期モード時は常に更新
       if (syncMode && syncData.length > 0) {
         let targetSegmentId = syncData[0].segmentId;
-        let targetStationId = 0;
         
         // 現在時間に対応するセグメントを探す
         for (let i = 0; i < syncData.length; i++) {
@@ -54,11 +73,9 @@ const AudioPlayer: React.FC = () => {
         // セグメントから宿場を特定
         const segment = tokaidoData.segments.find(s => s.id === targetSegmentId);
         if (segment) {
-          targetStationId = segment.stationId;
-          
           // 確実にステートを更新
           setCurrentSegment(targetSegmentId);
-          setCurrentStation(targetStationId);
+          setCurrentStation(segment.stationId);
           
           // デバッグ用（1秒ごとにログ出力）
           if (Math.floor(time) !== Math.floor(time - 0.1)) {
@@ -164,12 +181,12 @@ const AudioPlayer: React.FC = () => {
     }
   };
   
-  const clearSyncData = () => {
+  const clearSyncData = async () => {
     if (confirm('同期データを削除しますか？')) {
-      localStorage.removeItem('tokaido_sync_data');
+      await IndexedDBService.saveSyncPoints([]);
       setSyncData([]);
       setSyncMode(false);
-      window.location.reload();
+      alert('同期データを削除しました');
     }
   };
   
@@ -179,7 +196,9 @@ const AudioPlayer: React.FC = () => {
         <div className="flex justify-between text-xs text-gray-600 mb-1">
           <span>{formatTime(currentTime)}</span>
           <div className="flex gap-2">
-            {syncData.length > 0 ? (
+            {isLoading ? (
+              <span className="text-gray-400">読込中...</span>
+            ) : syncData.length > 0 ? (
               <>
                 <button
                   onClick={toggleSync}

@@ -1,4 +1,6 @@
+// src/components/audio/SyncRecorder.tsx
 import React, { useState, useEffect } from 'react';
+import IndexedDBService from '../../services/storage/IndexedDBService';
 import tokaidoData from '../../assets/data/tokaidoFullData.json';
 
 const SyncRecorder: React.FC = () => {
@@ -9,16 +11,17 @@ const SyncRecorder: React.FC = () => {
   
   // 初回のみデータを確認
   useEffect(() => {
-    const data = localStorage.getItem('tokaido_sync_data');
-    if (data) {
-      try {
-        const parsed = JSON.parse(data);
-        setSavedDataCount(parsed.length);
-      } catch (e) {
-        console.error('同期データ読み込みエラー');
-      }
-    }
+    loadSyncCount();
   }, []);
+
+  const loadSyncCount = async () => {
+    try {
+      const points = await IndexedDBService.getAllSyncPoints();
+      setSavedDataCount(points.length);
+    } catch (error) {
+      console.error('同期データカウント取得エラー:', error);
+    }
+  };
   
   const startSyncRecording = () => {
     setIsRecordingSync(true);
@@ -46,12 +49,93 @@ const SyncRecorder: React.FC = () => {
     }
   };
   
-  const saveSyncData = () => {
-    localStorage.setItem('tokaido_sync_data', JSON.stringify(syncPoints));
-    setSavedDataCount(syncPoints.length);
-    setIsRecordingSync(false);
-    alert(`${syncPoints.length}個の同期ポイントを保存しました`);
-    window.location.reload();
+  const saveSyncData = async () => {
+    try {
+      await IndexedDBService.saveSyncPoints(syncPoints);
+      setSavedDataCount(syncPoints.length);
+      setIsRecordingSync(false);
+      alert(`${syncPoints.length}個の同期ポイントを保存しました`);
+      
+      // ページをリロードして変更を反映
+      window.location.reload();
+    } catch (error) {
+      console.error('同期データ保存エラー:', error);
+      alert('保存に失敗しました');
+    }
+  };
+
+  const exportSyncData = async () => {
+    try {
+      const points = await IndexedDBService.getAllSyncPoints();
+      
+      if (points.length === 0) {
+        alert('エクスポートするデータがありません');
+        return;
+      }
+
+      const recordings = await IndexedDBService.getAllRecordings();
+      const recordingsMetadata = recordings.map(r => ({
+        name: r.name,
+        duration: r.duration,
+        createdAt: r.createdAt,
+        size: r.size || r.blob.size
+      }));
+
+      const exportData = {
+        version: "2.0",
+        type: "settings_only",
+        date: new Date().toISOString(),
+        recordingsMetadata,
+        syncData: points,
+        settings: {
+          state: {
+            displayMode: "horizontal",
+            showRuby: true,
+            fontSize: "medium"
+          },
+          version: 0
+        },
+        recordingsCount: recordings.length,
+        syncPointsCount: points.length
+      };
+
+      const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `tokaido_settings_${new Date().toISOString().split('T')[0]}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+
+      alert('設定をエクスポートしました');
+    } catch (error) {
+      console.error('エクスポートエラー:', error);
+      alert('エクスポートに失敗しました');
+    }
+  };
+
+  const importSyncData = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    try {
+      const text = await file.text();
+      const data = JSON.parse(text);
+
+      if (data.syncData && Array.isArray(data.syncData)) {
+        await IndexedDBService.saveSyncPoints(data.syncData);
+        setSavedDataCount(data.syncData.length);
+        alert(`${data.syncData.length}個の同期ポイントをインポートしました`);
+        window.location.reload();
+      } else {
+        alert('無効なファイル形式です');
+      }
+    } catch (error) {
+      console.error('インポートエラー:', error);
+      alert('インポートに失敗しました');
+    }
+
+    event.target.value = '';
   };
   
   const currentSegment = currentIndex < tokaidoData.segments.length 
@@ -65,12 +149,31 @@ const SyncRecorder: React.FC = () => {
       </div>
       
       {!isRecordingSync ? (
-        <button
-          onClick={startSyncRecording}
-          className="px-3 py-1 bg-blue-500 text-white rounded text-xs"
-        >
-          同期記録開始
-        </button>
+        <div className="space-y-1">
+          <button
+            onClick={startSyncRecording}
+            className="w-full px-3 py-1 bg-blue-500 text-white rounded text-xs"
+          >
+            同期記録開始
+          </button>
+          <div className="flex gap-1">
+            <button
+              onClick={exportSyncData}
+              className="flex-1 px-3 py-1 bg-green-500 text-white rounded text-xs"
+            >
+              設定をバックアップ
+            </button>
+            <label className="flex-1 px-3 py-1 bg-purple-500 text-white rounded text-xs cursor-pointer text-center">
+              設定を復元
+              <input
+                type="file"
+                accept=".json"
+                onChange={importSyncData}
+                className="hidden"
+              />
+            </label>
+          </div>
+        </div>
       ) : (
         <div className="space-y-1">
           <div className="text-xs text-gray-600">

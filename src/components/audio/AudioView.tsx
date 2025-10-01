@@ -1,7 +1,7 @@
+// src/components/audio/AudioView.tsx
 import React from 'react';
 import AudioRecorder from './AudioRecorder';
 import SyncRecorder from './SyncRecorder';
-import DataBackup from './DataBackup';
 import AudioPlayer from './AudioPlayer';
 
 const AudioView: React.FC = () => {
@@ -12,7 +12,6 @@ const AudioView: React.FC = () => {
       </div>
       
       <SyncRecorder />
-      <DataBackup />
       
       <div className="border-t">
         <AudioPlayer />
