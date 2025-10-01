@@ -212,7 +212,7 @@ const AudioRecorder: React.FC = () => {
         </div>
       )}
       
-      <div className="flex-1 overflow-auto border-t pt-2">
+      <div className="max-h-24 overflow-auto border-t pt-2">
         <div className="text-sm text-gray-600 mb-2">
           保存済み ({savedRecordings.length})
         </div>
