@@ -7,7 +7,7 @@ import tokaidoData from '../../assets/data/tokaidoFullData.json';
 const AudioPlayer: React.FC = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
-  const [syncMode, setSyncMode] = useState(false);
+  const [syncMode, setSyncMode] = useState(true); // デフォルトで同期ON
   const [syncData, setSyncData] = useState<Array<{time: number, segmentId: string}>>([]);
   const [isLoading, setIsLoading] = useState(true);
   
@@ -191,7 +191,7 @@ const AudioPlayer: React.FC = () => {
   };
   
   return (
-    <div className="p-4 border-t bg-gray-50">
+    <div className="p-4 border-t bg-gray-50 pb-safe" style={{ paddingBottom: 'max(1rem, env(safe-area-inset-bottom))' }}>
       <div className="mb-2">
         <div className="flex justify-between text-xs text-gray-600 mb-1">
           <span>{formatTime(currentTime)}</span>
