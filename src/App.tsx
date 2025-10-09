@@ -1,10 +1,10 @@
-// src/App.tsx
 import { useState } from 'react';
 import { Layout } from './components/layout';
 import { TextView } from './components/text';
 import { MapView } from './components/map';
 import { AudioView } from './components/audio';
 import InitialDataLoader from './components/common/InitialDataLoader';
+import PWAInstallPrompt from './components/common/PWAInstallPrompt';
 import './index.css';
 
 function App() {
@@ -79,6 +79,7 @@ function App() {
           </div>
         </div>
       </Layout>
+      <PWAInstallPrompt />
     </InitialDataLoader>
   );
 }
