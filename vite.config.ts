@@ -4,20 +4,82 @@ import { VitePWA } from 'vite-plugin-pwa';
 import path from 'path';
 
 export default defineConfig(({ mode }) => {
-  // modeに応じて環境変数を読み込む
   const env = loadEnv(mode, process.cwd(), '');
 
   return {
-    base: '/', // 環境変数からbaseパスを設定。なければ'/'
+    base: '/',
     plugins: [
       react(),
       VitePWA({
         registerType: 'autoUpdate',
-        includeAssets: ['favicon.ico', 'robots.txt'],
-        manifest: false // public/manifest.jsonを使用
+        includeAssets: ['favicon.ico', 'robots.txt', 'icons/*.png'],
+        manifest: {
+          name: '東海道往来 - インタラクティブ朗読アプリケーション',
+          short_name: '東海道往来',
+          description: '江戸時代の東海道五十三次を題材にした、テキスト・音声・地図が連動するインタラクティブ朗読アプリ',
+          theme_color: '#3b82f6',
+          background_color: '#ffffff',
+          display: 'standalone',
+          orientation: 'portrait',
+          scope: '/',
+          start_url: '/',
+          lang: 'ja',
+          icons: [
+            {
+              src: '/icons/icon-192x192.png',
+              sizes: '192x192',
+              type: 'image/png',
+              purpose: 'any maskable'
+            },
+            {
+              src: '/icons/icon-512x512.png',
+              sizes: '512x512',
+              type: 'image/png',
+              purpose: 'any maskable'
+            }
+          ]
+        },
+        workbox: {
+          globPatterns: ['**/*.{js,css,html,ico,png,svg,json,woff,woff2}'],
+          runtimeCaching: [
+            {
+              urlPattern: /^https:\/\/ppbjx2gbkie88n2g\.public\.blob\.vercel-storage\.com\/.*/i,
+              handler: 'CacheFirst',
+              options: {
+                cacheName: 'vercel-blob-cache',
+                expiration: {
+                  maxEntries: 10,
+                  maxAgeSeconds: 60 * 60 * 24 * 365 // 1年
+                },
+                cacheableResponse: {
+                  statuses: [0, 200]
+                }
+              }
+            },
+            {
+              urlPattern: /^https:\/\/.*\.tile\.openstreetmap\.org\/.*/i,
+              handler: 'CacheFirst',
+              options: {
+                cacheName: 'osm-tiles-cache',
+                expiration: {
+                  maxEntries: 500,
+                  maxAgeSeconds: 60 * 60 * 24 * 30 // 30日
+                },
+                cacheableResponse: {
+                  statuses: [0, 200]
+                }
+              }
+            }
+          ],
+          maximumFileSizeToCacheInBytes: 5 * 1024 * 1024 // 5MB
+        },
+        devOptions: {
+          enabled: true,
+          type: 'module'
+        }
       })
     ],
-        resolve: {
+    resolve: {
       alias: {
         '@': path.resolve(__dirname, './src'),
         '@components': path.resolve(__dirname, './src/components'),
